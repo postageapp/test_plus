@@ -80,9 +80,9 @@ module TestPlus::Extensions
     exception_raised = nil
     yield
 
-  rescue => exception_raised
+  rescue Object => exception_raised
     if (exception_class)
-      assert_equal(
+      assert(
         exception_raised.is_a?(exception_class),
         message || "Exception raised is not of type #{exception_class}, instead is #{exception_raised.class}",
         &block
