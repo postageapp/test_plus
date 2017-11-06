@@ -51,7 +51,7 @@ module TestPlus::Extensions
   # result of that block is compared to the expected value. Any mistakes
   # are reported as failures.
   def assert_mapping(map)
-    result_map = map.each_with_object({ }) do |(k,v), h|
+    result_map = map.each_with_object({ }) do |(k,_), h|
       if (k and k.respond_to?(:freeze))
         k = k.freeze
       end
@@ -78,14 +78,14 @@ module TestPlus::Extensions
   # provided to ensure that the exception is of the correct type.
   def assert_exception_raised(exception_class = nil, error_text = nil, message = nil, &block)
     exception_raised = nil
+
     yield
 
   rescue Object => exception_raised
     if (exception_class)
       assert(
         exception_raised.is_a?(exception_class),
-        message || "Exception raised is not of type #{exception_class}, instead is #{exception_raised.class}",
-        &block
+        message || "Exception raised is not of type #{exception_class}, instead is #{exception_raised.class}"
       )
     else
       assert(true)
@@ -95,8 +95,7 @@ module TestPlus::Extensions
       assert_equal(
         error_text,
         exception_raised.to_s,
-        message || "Exception raised had incorrect text",
-        &block
+        message || "Exception raised had incorrect text"
       )
     end
   else

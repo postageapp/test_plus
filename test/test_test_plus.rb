@@ -10,4 +10,10 @@ class TestTestPlus < Test::Unit::TestCase
       letter and letter.upcase
     end
   end
+
+  def test_assert_exception_raised
+    assert_exception_raised ArgumentError do
+      ''.to_s(1)
+    end
+  end
 end
