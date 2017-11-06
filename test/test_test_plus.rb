@@ -16,4 +16,13 @@ class TestTestPlus < Test::Unit::TestCase
       ''.to_s(1)
     end
   end
+
+  def test_assert_equal_reduced
+    a = [ 1, 2, 3, 4, 5 ]
+    b = %w[ 1 2 3 4 5 ]
+
+    assert_equal_reduced(a, b, :to_s)
+
+    assert_equal_reduced(a, b, ->(v) { v.to_s })
+  end
 end

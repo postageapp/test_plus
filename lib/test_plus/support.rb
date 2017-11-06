@@ -4,8 +4,9 @@ module TestPlus::Support
   def reduce_with(list, reduction)
     case (reduction)
     when Symbol
+      reduction_method = reduction
       reduction = lambda do |o|
-        o.respond_to?(reduction) ? o.send(reduction) : o
+        o.respond_to?(reduction_method) ? o.send(reduction_method) : o
       end
     end
 
