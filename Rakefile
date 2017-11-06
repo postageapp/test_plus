@@ -16,8 +16,8 @@ require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
-  gem.name = "test-plus"
-  gem.homepage = "http://github.com/postageapp/test-plus"
+  gem.name = "test_plus"
+  gem.homepage = "http://github.com/postageapp/test_plus"
   gem.license = "MIT"
   gem.summary = %Q{Extensions for Test::Unit and Minitest}
   gem.description = %Q{Convenience methods for testing in Ruby and Rails}

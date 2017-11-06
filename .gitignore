@@ -9,6 +9,8 @@ rdoc
 doc
 .yardoc
 
+*.gem
+
 # bundler
 .bundle
 
