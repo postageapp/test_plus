@@ -6,7 +6,7 @@ module TestPlus::Extensions
   # new record.
   def assert_created(model)
     assert(model, "Model was not defined")
-    assert_equal([ ], model.errors.full_messages)
+    assert_equal([ ], model.errors.full_messages.reject { |m| m[:format] })
     assert(model.valid?, "Model failed to validate")
     assert(!model.new_record?, "Model is still a new record")
   end
